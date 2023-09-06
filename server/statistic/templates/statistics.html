@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Statistics</title>
+</head>
+<body>
+    <h1>Welcome to User Statistics</h1>
+
+    <h2>Your Statistics</h2>
+    <p>Your completion rate: {{ own_completion_rate }}%</p>
+    <p>Your rank among friends: {{ own_rank }}</p>
+
+    <h2>Friends' Completion Rates</h2>
+    <ul>
+        {% for friend, completion_rate in friends_completion_rate %}
+        <li>{{ friend.username }} - {{ completion_rate }}%</li>
+        {% endfor %}
+    </ul>
+
+    <form action="{% url 'update_user_statistic' %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="nickname" value="{{ user.nickname }}">
+        <input type="month" name="current_month">
+        <button type="submit">Update My Statistics</button>
+    </form>
+</body>
+</html>
