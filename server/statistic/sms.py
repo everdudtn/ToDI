@@ -17,8 +17,8 @@ def make_signature(url, access_key, secret_key):
     return signingkey
 
 def send_sms(phone_number, content):
-    user_access_key = "8V0XchIyKCb6hWqxaD6Y"
-    user_secret_key = "Mtab4h2ilXDajEoe4emsMA9IBIFolq0bCCGHHJBW"
+    user_access_key = "your access key"
+    user_secret_key = "your secret key"
     sms_service_id = "ncp:sms:kr:294780071838:sms"
     url = "/sms/v2/services/" + sms_service_id + "/messages"
     api_url = 'https://sens.apigw.ntruss.com' + url
@@ -34,7 +34,7 @@ def send_sms(phone_number, content):
         "type": "SMS",
         "contentType": "COMM",
         "countryCode": "82",
-        "from": "01075722191",
+        "from": "your phone number",
         "content": content,
         "messages": [
             {
